@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Área pessoal para acesso aos laudos e exames de Davi Antonino.">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="theme-color" content="#07111f">
+  <title>Exames Davi | Laudos médicos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background" aria-hidden="true">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="brand" aria-label="Exames Davi">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10A4 4 0 0 1 12 8a4 4 0 0 1 7 3c0 5.65-7 10-7 10Z"/><path d="M8.5 12h2l1-2.3 1.7 4.6 1.1-2.3h1.2"/></svg>
+        </span>
+        <span>Exames Davi</span>
+      </div>
+
+      <div class="hero-copy">
+        <span class="eyebrow">Central de documentos médicos</span>
+        <h1>Laudos e exames em um só lugar</h1>
+        <p>Acesse cada documento em PDF por um botão separado. Os arquivos podem ser abertos no navegador ou baixados para o dispositivo.</p>
+      </div>
+
+      <div class="stats" aria-label="Resumo dos documentos">
+        <div class="stat"><strong>6</strong><span>arquivos PDF</span></div>
+        <div class="stat"><strong>2026</strong><span>ano dos exames</span></div>
+        <div class="stat"><strong>PDF</strong><span>visualização direta</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="privacy-note" aria-label="Aviso de privacidade">
+      <span class="privacy-icon" aria-hidden="true">!</span>
+      <div>
+        <strong>Documentos pessoais de saúde</strong>
+        <p>Os PDFs podem conter informações médicas e dados de identificação. Compartilhe este endereço somente com pessoas autorizadas.</p>
+      </div>
+    </section>
+
+    <section class="documents" aria-labelledby="documents-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Documentos disponíveis</span>
+          <h2 id="documents-title">Selecione um laudo</h2>
+        </div>
+        <label class="search-box">
+          <span class="sr-only">Pesquisar laudos</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="search" type="search" placeholder="Pesquisar exame..." autocomplete="off">
+        </label>
+      </div>
+
+      <div class="document-grid" id="document-grid">
+        <article class="document-card" data-search="ultrassom tireoide doppler nodulo tirads">
+          <div class="card-top">
+            <span class="card-icon thyroid" aria-hidden="true">T</span>
+            <span class="date">30 jun 2026</span>
+          </div>
+          <h3>Ultrassom da tireoide com Doppler</h3>
+          <p>Avaliação ultrassonográfica da tireoide, vascularização e classificação do nódulo.</p>
+          <div class="card-actions">
+            <a class="primary-button" href="laudos/01-ultrassom-tireoide-com-doppler.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+            <a class="icon-button" href="laudos/01-ultrassom-tireoide-com-doppler.pdf" download aria-label="Baixar ultrassom da tireoide com Doppler">↓</a>
+          </div>
+        </article>
+
+        <article class="document-card" data-search="ultrassom tireoide nodulo tirads">
+          <div class="card-top">
+            <span class="card-icon thyroid" aria-hidden="true">T</span>
+            <span class="date">30 jun 2026</span>
+          </div>
+          <h3>Ultrassom da tireoide</h3>
+          <p>Laudo de ultrassonografia da tireoide com descrição das estruturas e do nódulo.</p>
+          <div class="card-actions">
+            <a class="primary-button" href="laudos/02-ultrassom-tireoide.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+            <a class="icon-button" href="laudos/02-ultrassom-tireoide.pdf" download aria-label="Baixar ultrassom da tireoide">↓</a>
+          </div>
+        </article>
+
+        <article class="document-card" data-search="doppler carotidas vertebrais vascular arterias pescoco">
+          <div class="card-top">
+            <span class="card-icon vascular" aria-hidden="true">V</span>
+            <span class="date">15 jul 2026</span>
+          </div>
+          <h3>Doppler de carótidas e vertebrais</h3>
+          <p>Estudo do sistema arterial carotídeo e vertebral com análise de fluxo e velocidades.</p>
+          <div class="card-actions">
+            <a class="primary-button" href="laudos/03-doppler-carotidas-e-vertebrais.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+            <a class="icon-button" href="laudos/03-doppler-carotidas-e-vertebrais.pdf" download aria-label="Baixar Doppler de carótidas e vertebrais">↓</a>
+          </div>
+        </article>
+
+        <article class="document-card featured" data-search="laboratorio sangue lipidograma hormonios vitaminas rim figado testosterona glicada">
+          <div class="card-top">
+            <span class="card-icon laboratory" aria-hidden="true">L</span>
+            <span class="date">14–15 jul 2026</span>
+          </div>
+          <span class="badge">Laudo completo · 17 páginas</span>
+          <h3>Exames laboratoriais completos</h3>
+          <p>Painel consolidado com resultados metabólicos, renais, hepáticos, hormonais e vitamínicos.</p>
+          <div class="card-actions">
+            <a class="primary-button" href="laudos/04-exames-laboratoriais-completos.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+            <a class="icon-button" href="laudos/04-exames-laboratoriais-completos.pdf" download aria-label="Baixar exames laboratoriais completos">↓</a>
+          </div>
+        </article>
+
+        <article class="document-card" data-search="glicose microalbuminuria urina rim albumina">
+          <div class="card-top">
+            <span class="card-icon urine" aria-hidden="true">U</span>
+            <span class="date">14 jul 2026</span>
+          </div>
+          <h3>Glicose, microalbuminúria e urina</h3>
+          <p>Resultados de glicemia, relação albumina/creatinina e exame de urina tipo I.</p>
+          <div class="card-actions">
+            <a class="primary-button" href="laudos/05-glicose-microalbuminuria-e-urina.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+            <a class="icon-button" href="laudos/05-glicose-microalbuminuria-e-urina.pdf" download aria-label="Baixar glicose, microalbuminúria e urina">↓</a>
+          </div>
+        </article>
+
+        <article class="document-card" data-search="glicose urina glicemia">
+          <div class="card-top">
+            <span class="card-icon urine" aria-hidden="true">U</span>
+            <span class="date">14 jul 2026</span>
+          </div>
+          <h3>Glicose e urina tipo I</h3>
+          <p>Laudo resumido com glicose sanguínea e análise física, química e do sedimento urinário.</p>
+          <div class="card-actions">
+            <a class="primary-button" href="laudos/06-glicose-e-urina.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+            <a class="icon-button" href="laudos/06-glicose-e-urina.pdf" download aria-label="Baixar glicose e urina tipo I">↓</a>
+          </div>
+        </article>
+      </div>
+
+      <div id="empty-state" class="empty-state" hidden>
+        <strong>Nenhum exame encontrado.</strong>
+        <span>Tente pesquisar por tireoide, carótidas, laboratório ou urina.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Exames Davi</span>
+      <span>Documentos pessoais · Atualizado em julho de 2026</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
