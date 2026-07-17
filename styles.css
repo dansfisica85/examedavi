@@ -76,6 +76,10 @@ h2 { margin-bottom: 0; font-size: clamp(1.8rem, 4vw, 2.7rem); letter-spacing: -.
 .card-icon.vascular { color: #fda4af; background: rgba(244,63,94,.12); border: 1px solid rgba(253,164,175,.2); }
 .card-icon.laboratory { color: #c4b5fd; background: rgba(139,92,246,.14); border: 1px solid rgba(196,181,253,.2); }
 .card-icon.urine { color: #fde68a; background: rgba(234,179,8,.12); border: 1px solid rgba(253,230,138,.2); }
+.card-icon.cardiac { color: #fca5a5; background: rgba(239,68,68,.13); border: 1px solid rgba(252,165,165,.22); }
+.card-icon.echo { color: #86efac; background: rgba(34,197,94,.12); border: 1px solid rgba(134,239,172,.2); }
+.card-icon.holter { color: #f9a8d4; background: rgba(236,72,153,.12); border: 1px solid rgba(249,168,212,.2); }
+.card-icon.venous { color: #fdba74; background: rgba(249,115,22,.12); border: 1px solid rgba(253,186,116,.2); }
 .date { color: var(--muted); font-size: .76rem; font-weight: 600; }
 .badge { width: max-content; margin: -7px 0 12px; padding: 5px 9px; border-radius: 999px; color: #bfdbfe; background: rgba(59,130,246,.13); font-size: .69rem; font-weight: 700; }
 .document-card h3 { margin-bottom: 12px; font-size: 1.18rem; line-height: 1.35; letter-spacing: -.025em; }
