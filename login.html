@@ -7,21 +7,20 @@
   <meta name="theme-color" content="#07111f">
   <title>Acesso protegido | Exames Davi</title>
   <style>
-    :root{color-scheme:dark;--bg:#07111f;--card:#10233b;--text:#f6f9fc;--muted:#a8b7ca;--line:rgba(255,255,255,.12);--accent:#5eead4;--accent2:#2dd4bf;--danger:#fca5a5}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 80% 0,rgba(20,184,166,.18),transparent 34rem),radial-gradient(circle at 0 100%,rgba(37,99,235,.17),transparent 36rem),var(--bg);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text)}main{width:min(440px,100%);padding:30px;border:1px solid var(--line);border-radius:24px;background:rgba(16,35,59,.9);box-shadow:0 28px 70px rgba(0,0,0,.34)}.lock{width:52px;height:52px;display:grid;place-items:center;margin-bottom:22px;border-radius:16px;background:rgba(94,234,212,.1);border:1px solid rgba(94,234,212,.3);font-size:24px}h1{margin:0 0 10px;font-size:clamp(1.8rem,8vw,2.45rem);letter-spacing:-.045em}p{margin:0 0 26px;color:var(--muted);line-height:1.6}label{display:block;margin-bottom:8px;font-size:.9rem;font-weight:700}input{width:100%;min-height:50px;padding:12px 14px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.045);color:var(--text);font:inherit;outline:none}input:focus{border-color:rgba(94,234,212,.65);box-shadow:0 0 0 4px rgba(94,234,212,.08)}button{width:100%;min-height:50px;margin-top:14px;border:0;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#03201c;font:inherit;font-weight:800;cursor:pointer}button:disabled{opacity:.65;cursor:wait}.message{min-height:24px;margin-top:12px;color:var(--danger);font-size:.88rem}.foot{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem;line-height:1.5}
+    :root{color-scheme:dark;--bg:#07111f;--card:#10233b;--text:#f6f9fc;--muted:#a8b7ca;--line:rgba(255,255,255,.12);--accent:#5eead4;--accent2:#2dd4bf;--danger:#fca5a5}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 80% 0,rgba(20,184,166,.18),transparent 34rem),radial-gradient(circle at 0 100%,rgba(37,99,235,.17),transparent 36rem),var(--bg);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text)}main{width:min(440px,100%);padding:30px;border:1px solid var(--line);border-radius:24px;background:rgba(16,35,59,.9);box-shadow:0 28px 70px rgba(0,0,0,.34)}.lock{width:52px;height:52px;display:grid;place-items:center;margin-bottom:22px;border-radius:16px;background:rgba(94,234,212,.1);border:1px solid rgba(94,234,212,.3);font-size:24px}h1{margin:0 0 10px;font-size:clamp(1.8rem,8vw,2.45rem);letter-spacing:-.045em}p{margin:0 0 26px;color:var(--muted);line-height:1.6}label{display:block;margin-bottom:8px;font-size:.9rem;font-weight:700}input{width:100%;min-height:50px;padding:12px 14px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.045);color:var(--text);font:inherit;outline:none}input:focus{border-color:rgba(94,234,212,.65);box-shadow:0 0 0 4px rgba(94,234,212,.08)}button{width:100%;min-height:50px;margin-top:14px;border:0;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#03201c;font:inherit;font-weight:800;cursor:pointer}button:disabled{opacity:.65;cursor:wait}.message{min-height:24px;margin-top:12px;color:var(--danger);font-size:.88rem}
   </style>
 </head>
 <body>
   <main>
     <div class="lock" aria-hidden="true">🔒</div>
     <h1>Acesso aos exames</h1>
-    <p>Esta área contém documentos pessoais de saúde. Digite a senha para continuar.</p>
+    <p>Digite a senha para continuar.</p>
     <form id="login-form">
       <label for="password">Senha de acesso</label>
       <input id="password" name="password" type="password" inputmode="numeric" autocomplete="current-password" required autofocus>
       <button id="submit" type="submit">Entrar</button>
       <div id="message" class="message" role="alert" aria-live="polite"></div>
     </form>
-    <div class="foot">A sessão expira automaticamente. Este endereço não deve ser compartilhado com pessoas não autorizadas.</div>
   </main>
   <script>
     const form=document.querySelector('#login-form');
