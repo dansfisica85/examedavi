@@ -2,6 +2,11 @@ const searchInput = document.querySelector('#search');
 const cards = [...document.querySelectorAll('.document-card')];
 const emptyState = document.querySelector('#empty-state');
 
+// Remove avisos antigos de privacidade da interface.
+document.querySelector('.privacy-note')?.remove();
+const footerSpans = document.querySelectorAll('.footer-inner span');
+if (footerSpans[1]) footerSpans[1].textContent = 'Atualizado em 01/09/2026';
+
 const normalize = (value) => value
   .normalize('NFD')
   .replace(/[\u0300-\u036f]/g, '')
