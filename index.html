@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Área pessoal para acesso aos laudos e exames de Davi Antonino.">
+  <meta name="description" content="Área pessoal protegida para acesso aos laudos e exames de Davi Antonino.">
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="theme-color" content="#07111f">
   <title>Exames Davi | Laudos médicos</title>
@@ -13,31 +13,28 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="background" aria-hidden="true">
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
-    <div class="grid"></div>
-  </div>
+  <div class="background" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="grid"></div></div>
 
   <header class="hero">
     <div class="container hero-inner">
-      <div class="brand" aria-label="Exames Davi">
-        <span class="brand-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10A4 4 0 0 1 12 8a4 4 0 0 1 7 3c0 5.65-7 10-7 10Z"/><path d="M8.5 12h2l1-2.3 1.7 4.6 1.1-2.3h1.2"/></svg>
-        </span>
-        <span>Exames Davi</span>
+      <div class="topbar">
+        <div class="brand" aria-label="Exames Davi">
+          <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10A4 4 0 0 1 12 8a4 4 0 0 1 7 3c0 5.65-7 10-7 10Z"/><path d="M8.5 12h2l1-2.3 1.7 4.6 1.1-2.3h1.2"/></svg></span>
+          <span>Exames Davi</span>
+        </div>
+        <button class="secondary-button" id="logout" type="button">Sair</button>
       </div>
 
       <div class="hero-copy">
         <span class="eyebrow">Central de documentos médicos</span>
-        <h1>Meus laudos e exames - março a julho 2026</h1>
-        <p>Acesse cada documento em PDF por um botão separado.</p>
+        <h1>Meus laudos e exames — março a agosto de 2026</h1>
+        <p>Registros organizados do mais recente para o mais antigo, com duplicidades removidas da listagem.</p>
       </div>
 
       <div class="stats" aria-label="Resumo dos documentos">
-        <div class="stat"><strong>26</strong><span>arquivos PDF</span></div>
+        <div class="stat"><strong>23</strong><span>registros únicos</span></div>
         <div class="stat"><strong>2026</strong><span>ano dos exames</span></div>
-        <div class="stat"><strong>PDF</strong><span>visualização direta</span></div>
+        <div class="stat"><strong>Protegido</strong><span>acesso por sessão</span></div>
       </div>
     </div>
   </header>
@@ -45,395 +42,161 @@
   <main class="container">
     <section class="privacy-note" aria-label="Aviso de privacidade">
       <span class="privacy-icon" aria-hidden="true">!</span>
-      <div>
-        <strong>Documentos pessoais de saúde</strong>
-        <p>Os meus PDFs podem conter informações médicas e dados de identificação. Compartilhe este endereço somente com pessoas autorizadas.</p>
-      </div>
+      <div><strong>Documentos pessoais de saúde</strong><p>O acesso a este endereço é restrito. Não compartilhe a senha nem os documentos com pessoas não autorizadas.</p></div>
     </section>
 
     <section class="documents" aria-labelledby="documents-title">
       <div class="section-heading">
-        <div>
-          <span class="eyebrow">Documentos disponíveis</span>
-          <h2 id="documents-title">Selecione um laudo</h2>
-        </div>
-        <label class="search-box">
-          <span class="sr-only">Pesquisar laudos</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="search" type="search" placeholder="Pesquisar exame..." autocomplete="off">
-        </label>
+        <div><span class="eyebrow">Documentos disponíveis</span><h2 id="documents-title">Selecione um laudo</h2></div>
+        <label class="search-box"><span class="sr-only">Pesquisar laudos</span><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="search" type="search" placeholder="Pesquisar exame..." autocomplete="off"></label>
       </div>
 
+      <div class="sort-note">↓ Mais recentes primeiro</div>
       <div class="document-grid" id="document-grid">
-        <!-- Ordem cronológica: mais antigo → mais recente; sem data ao final do período relacionado -->
-
-        <!-- 14 mar 2026 -->
-        <article class="document-card featured" data-search="eletrocardiograma eletro ecg infarto coracao">
-          <div class="card-top">
-            <span class="card-icon cardiac" aria-hidden="true">♥</span>
-            <span class="date">14 mar 2026</span>
-          </div>
-          <span class="badge">Dia do infarto</span>
-          <h3>Eletro do dia do infarto 14/03/2026</h3>
-          <p>Eletrocardiograma realizado no dia do infarto (14 de março de 2026).</p>
-          <div class="card-actions">
-            <a class="primary-button" href="eletro%20dia%20do%20infarto%2014032026.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="eletro%20dia%20do%20infarto%2014032026.pdf" download aria-label="Baixar eletro dia do infarto 14/03/2026">↓</a>
-          </div>
+        <article class="document-card featured" data-search="29 agosto 2026 laboratorio sangue completo apolipoproteina lipidos hormonios renal hepaticos">
+          <div class="card-top"><span class="card-icon laboratory" aria-hidden="true">L</span><span class="date">29 ago 2026</span></div>
+          <span class="badge">Novo · 34 páginas</span><h3>Exames laboratoriais completos</h3><p>Painel laboratorial da coleta de 29 de agosto de 2026, incorporado a partir do laudo mais completo do pedido.</p>
+          <div class="card-actions"><a class="primary-button" href="/viewer?doc=lab-2026-08-29">Abrir laudo</a></div>
         </article>
 
-        <article class="document-card featured" data-search="troponina infarto coracao marcador">
-          <div class="card-top">
-            <span class="card-icon cardiac" aria-hidden="true">♥</span>
-            <span class="date">14 mar 2026</span>
-          </div>
-          <span class="badge">Dia do infarto</span>
-          <h3>Troponina do dia do infarto 14/03/2026</h3>
-          <p>Resultado de troponina do dia do infarto (14 de março de 2026).</p>
-          <div class="card-actions">
-            <a class="primary-button" href="Troponina%20dia%20do%20infarto%20140302026.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="Troponina%20dia%20do%20infarto%20140302026.pdf" download aria-label="Baixar troponina dia do infarto 14/03/2026">↓</a>
-          </div>
+        <article class="document-card featured" data-search="21 agosto 2026 teste ergometrico esteira bruce cardiologia esforco">
+          <div class="card-top"><span class="card-icon cardiac" aria-hidden="true">♥</span><span class="date">21 ago 2026</span></div>
+          <span class="badge">Novo</span><h3>Teste ergométrico</h3><p>Teste de esforço em protocolo de Bruce realizado em 21 de agosto de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="/viewer?doc=ergometrico-2026-08-21">Abrir laudo</a></div>
         </article>
 
-        <!-- 15 mar 2026 -->
-        <article class="document-card" data-search="sangue laboratorio diversos">
-          <div class="card-top">
-            <span class="card-icon laboratory" aria-hidden="true">L</span>
-            <span class="date">15 mar 2026</span>
-          </div>
-          <h3>Sangue 15/03/2026 (diversos)</h3>
-          <p>Painel de exames de sangue diversos de 15 de março de 2026.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="sangue%2015032026%20diversos.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="sangue%2015032026%20diversos.pdf" download aria-label="Baixar sangue 15/03/2026 diversos">↓</a>
-          </div>
+        <article class="document-card featured" data-search="20 agosto 2026 laboratorio sangue completo insulina testosterona lipidograma vitaminas renal hepaticos">
+          <div class="card-top"><span class="card-icon laboratory" aria-hidden="true">L</span><span class="date">20 ago 2026</span></div>
+          <span class="badge">Novo · 28 páginas</span><h3>Exames laboratoriais completos</h3><p>Painel laboratorial da coleta de 20 de agosto de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="/viewer?doc=lab-2026-08-20">Abrir laudo</a></div>
         </article>
 
-        <article class="document-card" data-search="sangue laboratorio completo">
-          <div class="card-top">
-            <span class="card-icon laboratory" aria-hidden="true">L</span>
-            <span class="date">15 mar 2026</span>
-          </div>
-          <h3>Sangue completo 15/03/2026</h3>
-          <p>Exame de sangue completo de 15 de março de 2026.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="sangue%20completo%2015032026.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="sangue%20completo%2015032026.pdf" download aria-label="Baixar sangue completo 15/03/2026">↓</a>
-          </div>
+        <article class="document-card" data-search="15 julho 2026 doppler carotidas vertebrais vascular arterias pescoco">
+          <div class="card-top"><span class="card-icon vascular" aria-hidden="true">V</span><span class="date">15 jul 2026</span></div>
+          <h3>Doppler de carótidas e vertebrais</h3><p>Estudo do sistema arterial carotídeo e vertebral com análise de fluxo e velocidades.</p>
+          <div class="card-actions"><a class="primary-button" href="03-doppler-carotidas-e-vertebrais.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="03-doppler-carotidas-e-vertebrais.pdf" download aria-label="Baixar Doppler de carótidas e vertebrais">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="troponina infarto coracao marcador">
-          <div class="card-top">
-            <span class="card-icon cardiac" aria-hidden="true">♥</span>
-            <span class="date">15 mar 2026</span>
-          </div>
-          <h3>Troponina 15/03/2026</h3>
-          <p>Resultado de troponina de 15 de março de 2026.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="troponina%2015032026.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="troponina%2015032026.pdf" download aria-label="Baixar troponina 15/03/2026">↓</a>
-          </div>
+        <article class="document-card featured" data-search="14 julho 2026 laboratorio sangue completo lipidograma hormonios vitaminas rim figado testosterona glicada">
+          <div class="card-top"><span class="card-icon laboratory" aria-hidden="true">L</span><span class="date">14 jul 2026</span></div>
+          <span class="badge">Atualizado · 20 páginas</span><h3>Exames laboratoriais consolidados</h3><p>Versão mais completa enviada para a coleta de 14 de julho de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="/viewer?doc=lab-2026-07-14">Abrir laudo</a></div>
         </article>
 
-        <!-- 16 mar 2026 -->
-        <article class="document-card" data-search="eletrocardiograma eletro ecg infarto coracao">
-          <div class="card-top">
-            <span class="card-icon cardiac" aria-hidden="true">♥</span>
-            <span class="date">16 mar 2026</span>
-          </div>
-          <h3>Eletro 16/03/2026 (infarto)</h3>
-          <p>Eletrocardiograma do dia 16 de março de 2026, contexto de infarto.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="Eletro%2016032026%20infarto.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="Eletro%2016032026%20infarto.pdf" download aria-label="Baixar eletro 16/03/2026 infarto">↓</a>
-          </div>
+        <article class="document-card" data-search="14 julho 2026 glicose microalbuminuria urina rim albumina creatinina">
+          <div class="card-top"><span class="card-icon urine" aria-hidden="true">U</span><span class="date">14 jul 2026</span></div>
+          <h3>Glicose, microalbuminúria e urina</h3><p>Resultados de glicemia, relação albumina/creatinina e exame de urina tipo I.</p>
+          <div class="card-actions"><a class="primary-button" href="05-glicose-microalbuminuria-e-urina.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="05-glicose-microalbuminuria-e-urina.pdf" download aria-label="Baixar glicose, microalbuminúria e urina">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="sangue laboratorio exame hemograma">
-          <div class="card-top">
-            <span class="card-icon laboratory" aria-hidden="true">L</span>
-            <span class="date">16 mar 2026</span>
-          </div>
-          <h3>Exame de sangue 16/03/2026</h3>
-          <p>Resultados laboratoriais de sangue de 16 de março de 2026.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="exame%2016032026%20sangue.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="exame%2016032026%20sangue.pdf" download aria-label="Baixar exame de sangue 16/03/2026">↓</a>
-          </div>
+        <article class="document-card" data-search="14 julho 2026 glicose urina glicemia">
+          <div class="card-top"><span class="card-icon urine" aria-hidden="true">U</span><span class="date">14 jul 2026</span></div>
+          <h3>Glicose e urina tipo I</h3><p>Laudo com glicose sanguínea e análise física, química e do sedimento urinário.</p>
+          <div class="card-actions"><a class="primary-button" href="06-glicose-e-urina.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="06-glicose-e-urina.pdf" download aria-label="Baixar glicose e urina tipo I">↓</a></div>
         </article>
 
-        <!-- 18 mar 2026 -->
-        <article class="document-card featured" data-search="infarto coracao eletrocardiograma ecg exames sangue lab">
-          <div class="card-top">
-            <span class="card-icon cardiac" aria-hidden="true">♥</span>
-            <span class="date">18 mar 2026</span>
-          </div>
-          <span class="badge">Contexto infarto</span>
-          <h3>Exames infarto 18/03/2026</h3>
-          <p>Conjunto de exames relacionados ao episódio de infarto em 18 de março de 2026.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="18032026%20exames%20infarto.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="18032026%20exames%20infarto.pdf" download aria-label="Baixar exames infarto 18/03/2026">↓</a>
-          </div>
+        <article class="document-card" data-search="30 junho 2026 ultrassom tireoide doppler nodulo tirads">
+          <div class="card-top"><span class="card-icon thyroid" aria-hidden="true">T</span><span class="date">30 jun 2026</span></div>
+          <h3>Ultrassom da tireoide com Doppler</h3><p>Avaliação ultrassonográfica da tireoide, vascularização e classificação do nódulo.</p>
+          <div class="card-actions"><a class="primary-button" href="01-ultrassom-tireoide-com-doppler.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="01-ultrassom-tireoide-com-doppler.pdf" download aria-label="Baixar ultrassom da tireoide com Doppler">↓</a></div>
         </article>
 
-        <!-- mar 2026 (sem dia específico no nome) -->
-        <article class="document-card" data-search="eletrocardiograma eletro ecg infarto coracao">
-          <div class="card-top">
-            <span class="card-icon cardiac" aria-hidden="true">♥</span>
-            <span class="date">mar 2026</span>
-          </div>
-          <h3>Eletrocardiograma INFARTO</h3>
-          <p>Laudo de eletrocardiograma relacionado ao infarto.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="Eletrocardiograma%20INFARTO.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="Eletrocardiograma%20INFARTO.pdf" download aria-label="Baixar eletrocardiograma infarto">↓</a>
-          </div>
+        <article class="document-card" data-search="30 junho 2026 ultrassom tireoide nodulo tirads">
+          <div class="card-top"><span class="card-icon thyroid" aria-hidden="true">T</span><span class="date">30 jun 2026</span></div>
+          <h3>Ultrassom da tireoide</h3><p>Ultrassonografia da tireoide com descrição das estruturas e do nódulo.</p>
+          <div class="card-actions"><a class="primary-button" href="02-ultrassom-tireoide.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="02-ultrassom-tireoide.pdf" download aria-label="Baixar ultrassom da tireoide">↓</a></div>
         </article>
 
-        <!-- 20 abr 2026 -->
-        <article class="document-card" data-search="hemograma plaquetas sangue laboratorio">
-          <div class="card-top">
-            <span class="card-icon laboratory" aria-hidden="true">L</span>
-            <span class="date">20 abr 2026</span>
-          </div>
-          <h3>Hemograma com contagem de plaquetas</h3>
-          <p>Hemograma completo com contagem de plaquetas de 20 de abril de 2026.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="Hemograma%20com%20contagem%20de%20plaquetas%2020042026.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="Hemograma%20com%20contagem%20de%20plaquetas%2020042026.pdf" download aria-label="Baixar hemograma com contagem de plaquetas">↓</a>
-          </div>
+        <article class="document-card" data-search="20 abril 2026 hemograma plaquetas sangue laboratorio">
+          <div class="card-top"><span class="card-icon laboratory" aria-hidden="true">L</span><span class="date">20 abr 2026</span></div>
+          <h3>Hemograma com contagem de plaquetas</h3><p>Hemograma completo com contagem de plaquetas de 20 de abril de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="Hemograma%20com%20contagem%20de%20plaquetas%2020042026.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="Hemograma%20com%20contagem%20de%20plaquetas%2020042026.pdf" download aria-label="Baixar hemograma com contagem de plaquetas">↓</a></div>
         </article>
 
-        <!-- 15 jun 2026 -->
-        <article class="document-card" data-search="ecocardiograma coracao eco doppler bidimensional">
-          <div class="card-top">
-            <span class="card-icon echo" aria-hidden="true">E</span>
-            <span class="date">15 jun 2026</span>
-          </div>
-          <h3>Ecocardiograma 15/06/2026</h3>
-          <p>Laudo de ecocardiograma realizado em 15 de junho de 2026.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="ecocardiograma%2015062026.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="ecocardiograma%2015062026.pdf" download aria-label="Baixar ecocardiograma 15/06/2026">↓</a>
-          </div>
+        <article class="document-card featured" data-search="18 marco 2026 infarto coracao eletrocardiograma ecg exames sangue lab">
+          <div class="card-top"><span class="card-icon cardiac" aria-hidden="true">♥</span><span class="date">18 mar 2026</span></div>
+          <span class="badge">Contexto infarto</span><h3>Exames do infarto — 18/03/2026</h3><p>Conjunto de exames relacionados ao episódio cardíaco em 18 de março de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="18032026%20exames%20infarto.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="18032026%20exames%20infarto.pdf" download aria-label="Baixar exames infarto 18/03/2026">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="ecocardiograma coracao eco doppler bidimensional">
-          <div class="card-top">
-            <span class="card-icon echo" aria-hidden="true">E</span>
-            <span class="date">jun 2026</span>
-          </div>
-          <h3>Ecocardiograma bidimensional com Doppler</h3>
-          <p>Avaliação cardíaca bidimensional com estudo Doppler.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="Ecocardiograma%20bidimensional%20com%20doppler.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="Ecocardiograma%20bidimensional%20com%20doppler.pdf" download aria-label="Baixar ecocardiograma bidimensional com Doppler">↓</a>
-          </div>
+        <article class="document-card" data-search="16 marco 2026 eletrocardiograma eletro ecg infarto coracao">
+          <div class="card-top"><span class="card-icon cardiac" aria-hidden="true">♥</span><span class="date">16 mar 2026</span></div>
+          <h3>Eletrocardiograma — 16/03/2026</h3><p>Eletrocardiograma realizado em 16 de março de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="Eletro%2016032026%20infarto.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="Eletro%2016032026%20infarto.pdf" download aria-label="Baixar eletro 16/03/2026">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="holter coracao ritmo cardiaco monitorizacao">
-          <div class="card-top">
-            <span class="card-icon holter" aria-hidden="true">H</span>
-            <span class="date">2026</span>
-          </div>
-          <h3>Sistema HOLTER</h3>
-          <p>Laudo de monitoramento cardíaco com sistema Holter.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="Sistema%20HOLTER.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="Sistema%20HOLTER.pdf" download aria-label="Baixar sistema Holter">↓</a>
-          </div>
+        <article class="document-card" data-search="16 marco 2026 sangue laboratorio exame hemograma">
+          <div class="card-top"><span class="card-icon laboratory" aria-hidden="true">L</span><span class="date">16 mar 2026</span></div>
+          <h3>Exame de sangue — 16/03/2026</h3><p>Resultados laboratoriais de sangue de 16 de março de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="exame%2016032026%20sangue.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="exame%2016032026%20sangue.pdf" download aria-label="Baixar exame de sangue 16/03/2026">↓</a></div>
         </article>
 
-        <!-- 30 jun 2026 -->
-        <article class="document-card" data-search="ultrassom tireoide doppler nodulo tirads">
-          <div class="card-top">
-            <span class="card-icon thyroid" aria-hidden="true">T</span>
-            <span class="date">30 jun 2026</span>
-          </div>
-          <h3>Ultrassom da tireoide com Doppler</h3>
-          <p>Avaliação ultrassonográfica da tireoide, vascularização e classificação do nódulo.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="01-ultrassom-tireoide-com-doppler.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="01-ultrassom-tireoide-com-doppler.pdf" download aria-label="Baixar ultrassom da tireoide com Doppler">↓</a>
-          </div>
+        <article class="document-card" data-search="15 marco 2026 sangue laboratorio diversos completo">
+          <div class="card-top"><span class="card-icon laboratory" aria-hidden="true">L</span><span class="date">15 mar 2026</span></div>
+          <h3>Exames de sangue — 15/03/2026</h3><p>Painel de exames de sangue diversos de 15 de março de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="sangue%2015032026%20diversos.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="sangue%2015032026%20diversos.pdf" download aria-label="Baixar exames de sangue 15/03/2026">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="us doppler convencional colorido vasos tireoide">
-          <div class="card-top">
-            <span class="card-icon thyroid" aria-hidden="true">D</span>
-            <span class="date">30 jun 2026</span>
-          </div>
-          <h3>US Doppler conv./colorido (exceção vasos)</h3>
-          <p>Doppler convencional 40% ou colorido 100% (exceção dos vasos).</p>
-          <div class="card-actions">
-            <a class="primary-button" href="Us%20doppler%20convencional%2040%25%20ou%20doppler%20colorido%20100%25%20(excecao%20dos%20vasos).pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="Us%20doppler%20convencional%2040%25%20ou%20doppler%20colorido%20100%25%20(excecao%20dos%20vasos).pdf" download aria-label="Baixar US Doppler convencional ou colorido exceção dos vasos">↓</a>
-          </div>
+        <article class="document-card" data-search="15 marco 2026 troponina infarto coracao marcador">
+          <div class="card-top"><span class="card-icon cardiac" aria-hidden="true">♥</span><span class="date">15 mar 2026</span></div>
+          <h3>Troponina — 15/03/2026</h3><p>Resultado de troponina de 15 de março de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="troponina%2015032026.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="troponina%2015032026.pdf" download aria-label="Baixar troponina 15/03/2026">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="ultrassom tireoide nodulo tirads">
-          <div class="card-top">
-            <span class="card-icon thyroid" aria-hidden="true">T</span>
-            <span class="date">30 jun 2026</span>
-          </div>
-          <h3>Ultrassom da tireoide</h3>
-          <p>Laudo de ultrassonografia da tireoide com descrição das estruturas e do nódulo.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="02-ultrassom-tireoide.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="02-ultrassom-tireoide.pdf" download aria-label="Baixar ultrassom da tireoide">↓</a>
-          </div>
+        <article class="document-card featured" data-search="14 marco 2026 eletrocardiograma eletro ecg infarto coracao">
+          <div class="card-top"><span class="card-icon cardiac" aria-hidden="true">♥</span><span class="date">14 mar 2026</span></div>
+          <span class="badge">Dia do infarto</span><h3>Eletro do dia do infarto</h3><p>Eletrocardiograma realizado em 14 de março de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="eletro%20dia%20do%20infarto%2014032026.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="eletro%20dia%20do%20infarto%2014032026.pdf" download aria-label="Baixar eletro do dia do infarto">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="ultrassom tireoide us">
-          <div class="card-top">
-            <span class="card-icon thyroid" aria-hidden="true">T</span>
-            <span class="date">30 jun 2026</span>
-          </div>
-          <h3>US tireoide</h3>
-          <p>Laudo de ultrassonografia da tireoide (arquivo original).</p>
-          <div class="card-actions">
-            <a class="primary-button" href="Us%20tireoide.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="Us%20tireoide.pdf" download aria-label="Baixar US tireoide">↓</a>
-          </div>
+        <article class="document-card featured" data-search="14 marco 2026 troponina infarto coracao marcador">
+          <div class="card-top"><span class="card-icon cardiac" aria-hidden="true">♥</span><span class="date">14 mar 2026</span></div>
+          <span class="badge">Dia do infarto</span><h3>Troponina do dia do infarto</h3><p>Resultado de troponina relacionado a 14 de março de 2026.</p>
+          <div class="card-actions"><a class="primary-button" href="Troponina%20dia%20do%20infarto%20140302026.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="Troponina%20dia%20do%20infarto%20140302026.pdf" download aria-label="Baixar troponina do dia do infarto">↓</a></div>
         </article>
 
-        <!-- 14–15 jul 2026 -->
-        <article class="document-card" data-search="glicose microalbuminuria urina rim albumina">
-          <div class="card-top">
-            <span class="card-icon urine" aria-hidden="true">U</span>
-            <span class="date">14 jul 2026</span>
-          </div>
-          <h3>Glicose, microalbuminúria e urina</h3>
-          <p>Resultados de glicemia, relação albumina/creatinina e exame de urina tipo I.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="05-glicose-microalbuminuria-e-urina.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="05-glicose-microalbuminuria-e-urina.pdf" download aria-label="Baixar glicose, microalbuminúria e urina">↓</a>
-          </div>
+        <article class="document-card undated" data-search="eletrocardiograma infarto coracao ecg sem data">
+          <div class="card-top"><span class="card-icon cardiac" aria-hidden="true">♥</span><span class="date">data não identificada</span></div>
+          <h3>Eletrocardiograma INFARTO</h3><p>Laudo de eletrocardiograma relacionado ao infarto.</p>
+          <div class="card-actions"><a class="primary-button" href="Eletrocardiograma%20INFARTO.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="Eletrocardiograma%20INFARTO.pdf" download aria-label="Baixar eletrocardiograma infarto">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="glicose urina glicemia">
-          <div class="card-top">
-            <span class="card-icon urine" aria-hidden="true">U</span>
-            <span class="date">14 jul 2026</span>
-          </div>
-          <h3>Glicose e urina tipo I</h3>
-          <p>Laudo resumido com glicose sanguínea e análise física, química e do sedimento urinário.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="06-glicose-e-urina.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="06-glicose-e-urina.pdf" download aria-label="Baixar glicose e urina tipo I">↓</a>
-          </div>
+        <article class="document-card undated" data-search="ecocardiograma coracao eco doppler bidimensional sem data">
+          <div class="card-top"><span class="card-icon echo" aria-hidden="true">E</span><span class="date">data não identificada</span></div>
+          <h3>Ecocardiograma bidimensional com Doppler</h3><p>Avaliação cardíaca bidimensional com estudo Doppler.</p>
+          <div class="card-actions"><a class="primary-button" href="Ecocardiograma%20bidimensional%20com%20doppler.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="Ecocardiograma%20bidimensional%20com%20doppler.pdf" download aria-label="Baixar ecocardiograma bidimensional com Doppler">↓</a></div>
         </article>
 
-        <article class="document-card featured" data-search="laboratorio sangue lipidograma hormonios vitaminas rim figado testosterona glicada">
-          <div class="card-top">
-            <span class="card-icon laboratory" aria-hidden="true">L</span>
-            <span class="date">14–15 jul 2026</span>
-          </div>
-          <span class="badge">Laudo completo · 17 páginas</span>
-          <h3>Exames laboratoriais completos</h3>
-          <p>Painel consolidado com resultados metabólicos, renais, hepáticos, hormonais e vitamínicos.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="04-exames-laboratoriais-completos.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="04-exames-laboratoriais-completos.pdf" download aria-label="Baixar exames laboratoriais completos">↓</a>
-          </div>
+        <article class="document-card undated" data-search="holter coracao ritmo cardiaco monitorizacao sem data">
+          <div class="card-top"><span class="card-icon holter" aria-hidden="true">H</span><span class="date">data não identificada</span></div>
+          <h3>Sistema HOLTER</h3><p>Laudo de monitoramento cardíaco com sistema Holter.</p>
+          <div class="card-actions"><a class="primary-button" href="Sistema%20HOLTER.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="Sistema%20HOLTER.pdf" download aria-label="Baixar sistema Holter">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="doppler carotidas vertebrais vascular arterias pescoco">
-          <div class="card-top">
-            <span class="card-icon vascular" aria-hidden="true">V</span>
-            <span class="date">15 jul 2026</span>
-          </div>
-          <h3>Doppler de carótidas e vertebrais</h3>
-          <p>Estudo do sistema arterial carotídeo e vertebral com análise de fluxo e velocidades.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="03-doppler-carotidas-e-vertebrais.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="03-doppler-carotidas-e-vertebrais.pdf" download aria-label="Baixar Doppler de carótidas e vertebrais">↓</a>
-          </div>
+        <article class="document-card undated" data-search="glicose glicemia laboratorio sem data">
+          <div class="card-top"><span class="card-icon urine" aria-hidden="true">G</span><span class="date">data não identificada</span></div>
+          <h3>Glicose</h3><p>Resultado isolado de glicose sanguínea.</p>
+          <div class="card-actions"><a class="primary-button" href="GLICOSE.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="GLICOSE.pdf" download aria-label="Baixar glicose">↓</a></div>
         </article>
 
-        <article class="document-card" data-search="ultrassom boa vista diagnostico">
-          <div class="card-top">
-            <span class="card-icon vascular" aria-hidden="true">U</span>
-            <span class="date">15 jul 2026</span>
-          </div>
-          <h3>Ultrassom — Diag. Alt. da Boa Vista</h3>
-          <p>Laudo de ultrassonografia (Diagnóstico Alternativo da Boa Vista).</p>
-          <div class="card-actions">
-            <a class="primary-button" href="ULTRASSOM%20-%20DIAG%20ALT%20DA%20BOA%20VISTA.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="ULTRASSOM%20-%20DIAG%20ALT%20DA%20BOA%20VISTA.pdf" download aria-label="Baixar ultrassom Diag Alt da Boa Vista">↓</a>
-          </div>
+        <article class="document-card undated" data-search="doppler venoso profundo superficial veia perna direito sem data">
+          <div class="card-top"><span class="card-icon venous" aria-hidden="true">V</span><span class="date">data não identificada</span></div>
+          <h3>Doppler venoso profundo e superficial (D)</h3><p>Ultrassonografia Doppler do sistema venoso profundo e superficial direito.</p>
+          <div class="card-actions"><a class="primary-button" href="ULTRASSONOGRAFIA%20DOPPLER%20DO%20SISTEMA%20VENOSO%20PROFUNDO%20E%20SUPERFICIAL%20DIREITO.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="ULTRASSONOGRAFIA%20DOPPLER%20DO%20SISTEMA%20VENOSO%20PROFUNDO%20E%20SUPERFICIAL%20DIREITO.pdf" download aria-label="Baixar Doppler venoso profundo e superficial direito">↓</a></div>
         </article>
 
-        <!-- Sem data específica no nome do arquivo -->
-        <article class="document-card" data-search="glicose glicemia laboratorio">
-          <div class="card-top">
-            <span class="card-icon urine" aria-hidden="true">G</span>
-            <span class="date">sem data no arquivo</span>
-          </div>
-          <h3>Glicose</h3>
-          <p>Resultado isolado de glicose sanguínea.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="GLICOSE.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="GLICOSE.pdf" download aria-label="Baixar glicose">↓</a>
-          </div>
-        </article>
-
-        <article class="document-card" data-search="ultrassonografia doppler venoso profundo superficial veia perna">
-          <div class="card-top">
-            <span class="card-icon venous" aria-hidden="true">V</span>
-            <span class="date">sem data no arquivo</span>
-          </div>
-          <h3>Doppler venoso profundo e superficial (D)</h3>
-          <p>Ultrassonografia Doppler do sistema venoso profundo e superficial direito.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="ULTRASSONOGRAFIA%20DOPPLER%20DO%20SISTEMA%20VENOSO%20PROFUNDO%20E%20SUPERFICIAL%20DIREITO.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="ULTRASSONOGRAFIA%20DOPPLER%20DO%20SISTEMA%20VENOSO%20PROFUNDO%20E%20SUPERFICIAL%20DIREITO.pdf" download aria-label="Baixar Doppler venoso profundo e superficial direito">↓</a>
-          </div>
-        </article>
-
-        <article class="document-card" data-search="us doppler convencional colorido vasos">
-          <div class="card-top">
-            <span class="card-icon venous" aria-hidden="true">D</span>
-            <span class="date">sem data no arquivo</span>
-          </div>
-          <h3>US Doppler convencional / colorido</h3>
-          <p>Laudo de Doppler convencional (40%) ou Doppler colorido.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="US%20DOPPLER%20CONVENC%2040%25OU%20DOPPLER%20COLORIDO.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="US%20DOPPLER%20CONVENC%2040%25OU%20DOPPLER%20COLORIDO.pdf" download aria-label="Baixar US Doppler convencional ou colorido">↓</a>
-          </div>
-        </article>
-
-        <article class="document-card" data-search="us estudo vasos doppler bilateral carotidas">
-          <div class="card-top">
-            <span class="card-icon vascular" aria-hidden="true">V</span>
-            <span class="date">sem data no arquivo</span>
-          </div>
-          <h3>US estudo de 3+ vasos com Doppler (bilateral)</h3>
-          <p>Estudo ultrassonográfico de três ou mais vasos com Doppler convencional bilateral.</p>
-          <div class="card-actions">
-            <a class="primary-button" href="US%20ESTUDO%20DE%203%20OU%20MAIS%20VASOS%20C%20DOPPLER%20CONV%20-%20BILATERAL.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-            <a class="icon-button" href="US%20ESTUDO%20DE%203%20OU%20MAIS%20VASOS%20C%20DOPPLER%20CONV%20-%20BILATERAL.pdf" download aria-label="Baixar US estudo de 3 ou mais vasos com Doppler bilateral">↓</a>
-          </div>
+        <article class="document-card undated" data-search="estudo 3 mais vasos doppler bilateral carotidas sem data">
+          <div class="card-top"><span class="card-icon vascular" aria-hidden="true">V</span><span class="date">data não identificada</span></div>
+          <h3>US estudo de 3+ vasos com Doppler (bilateral)</h3><p>Estudo ultrassonográfico de três ou mais vasos com Doppler convencional bilateral.</p>
+          <div class="card-actions"><a class="primary-button" href="US%20ESTUDO%20DE%203%20OU%20MAIS%20VASOS%20C%20DOPPLER%20CONV%20-%20BILATERAL.pdf" target="_blank" rel="noopener">Abrir PDF</a><a class="icon-button" href="US%20ESTUDO%20DE%203%20OU%20MAIS%20VASOS%20C%20DOPPLER%20CONV%20-%20BILATERAL.pdf" download aria-label="Baixar US estudo de 3 ou mais vasos com Doppler bilateral">↓</a></div>
         </article>
       </div>
 
-      <div id="empty-state" class="empty-state" hidden>
-        <strong>Nenhum exame encontrado.</strong>
-        <span>Tente pesquisar por tireoide, carótidas, infarto, troponina, holter, laboratório ou urina.</span>
-      </div>
+      <div id="empty-state" class="empty-state" hidden><strong>Nenhum exame encontrado.</strong><span>Tente pesquisar por data, tireoide, carótidas, infarto, troponina, Holter, laboratório ou urina.</span></div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <span>Exames Davi</span>
-      <span>Documentos pessoais · Atualizado em julho de 2026</span>
-    </div>
-  </footer>
-
+  <footer><div class="container footer-inner"><span>Exames Davi</span><span>Documentos pessoais · Atualizado em 01/09/2026</span></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
