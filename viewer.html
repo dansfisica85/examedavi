@@ -12,7 +12,6 @@
     .pdf-frame{display:block;width:100%;height:min(76vh,980px);min-height:620px;border:0;background:#fff}
     .pdf-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
     .pdf-actions a{min-width:170px}
-    .pdf-note{margin-top:18px;color:var(--muted);font-size:.9rem}
     @media(max-width:680px){.pdf-frame{height:72vh;min-height:520px}.pdf-actions a{width:100%}}
   </style>
 </head>
@@ -33,7 +32,6 @@
         <a class="primary-action" id="open-pdf" target="_blank" rel="noopener">Abrir PDF em nova aba</a>
         <a class="secondary-button" id="download-pdf" target="_blank" rel="noopener">Baixar PDF</a>
       </div>
-      <p class="pdf-note" id="pdf-note" hidden>O PDF fica armazenado de forma privada no Google Drive. Caso o navegador solicite autenticação, entre na conta Google que possui acesso ao arquivo.</p>
     </section>
     <section class="pdf-shell" id="pdf-shell" hidden>
       <iframe class="pdf-frame" id="pdf-frame" title="Visualização do PDF" referrerpolicy="no-referrer"></iframe>
@@ -45,10 +43,10 @@
   </main>
   <script>
     const docs={
-      'lab-2026-08-29':{title:'Exames laboratoriais completos',date:'Coleta: 29/08/2026 · 34 páginas',id:'1032x_HDWQOsLnc7gbpaz_dTld4d76izj'},
-      'ergometrico-2026-08-21':{title:'Teste ergométrico',date:'Realização: 21/08/2026 · 1 página',id:'13Gv0I9yapLkD1NKovE84auvbi7krhCQZ'},
-      'lab-2026-08-20':{title:'Exames laboratoriais completos',date:'Coleta: 20/08/2026 · 28 páginas',id:'1TxozeewsQr22NxpE0nfgKLQMavE7279X'},
-      'lab-2026-07-14':{title:'Exames laboratoriais consolidados',date:'Coleta: 14/07/2026 · 20 páginas',id:'1GNpm0unLeCo_RNuQjO4hNriVyZSIXz6P'}
+      'lab-2026-08-29':{title:'Exames laboratoriais completos',date:'Coleta: 29/08/2026 · 34 páginas',id:'1zPvGX8AoK-z_D_PE9e6o86xMY4IRQSVY'},
+      'ergometrico-2026-08-21':{title:'Teste ergométrico',date:'Realização: 21/08/2026 · 1 página',id:'1N533Lg0trb0yLlqbzyR5hZHsCq28IRVq'},
+      'lab-2026-08-20':{title:'Exames laboratoriais completos',date:'Coleta: 20/08/2026 · 28 páginas',id:'1LKPVq-wb8NzDUsXrrY6xzZe__i5jdWlv'},
+      'lab-2026-07-14':{title:'Exames laboratoriais consolidados',date:'Coleta: 14/07/2026 · 20 páginas',id:'19DYIELwdkx8LlWSoq5CbNQtL-tMK3QG6'}
     };
 
     const key=new URLSearchParams(location.search).get('doc');
@@ -60,11 +58,10 @@
     const actions=document.querySelector('#pdf-actions');
     const openPdf=document.querySelector('#open-pdf');
     const downloadPdf=document.querySelector('#download-pdf');
-    const note=document.querySelector('#pdf-note');
     const errorBox=document.querySelector('#error-box');
 
     if(doc){
-      const view=`https://drive.google.com/file/d/${doc.id}/view?usp=drivesdk`;
+      const view=`https://drive.google.com/file/d/${doc.id}/view?usp=sharing`;
       const preview=`https://drive.google.com/file/d/${doc.id}/preview`;
       const download=`https://drive.google.com/uc?export=download&id=${doc.id}`;
       title.textContent=doc.title;
@@ -74,7 +71,6 @@
       downloadPdf.href=download;
       frame.src=preview;
       actions.hidden=false;
-      note.hidden=false;
       shell.hidden=false;
     }else{
       title.textContent='Documento não encontrado';
