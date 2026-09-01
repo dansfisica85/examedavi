@@ -5,8 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="theme-color" content="#07111f">
-  <title>Visualizador de laudo | Exames Davi</title>
+  <title>Visualizador de PDF | Exames Davi</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .pdf-shell{margin:24px 0 54px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:rgba(255,255,255,.035);box-shadow:var(--shadow)}
+    .pdf-frame{display:block;width:100%;height:min(76vh,980px);min-height:620px;border:0;background:#fff}
+    .pdf-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .pdf-actions a{min-width:170px}
+    .pdf-note{margin-top:18px;color:var(--muted);font-size:.9rem}
+    @media(max-width:680px){.pdf-frame{height:72vh;min-height:520px}.pdf-actions a{width:100%}}
+  </style>
 </head>
 <body>
   <div class="background" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="grid"></div></div>
@@ -18,65 +26,63 @@
   </header>
   <main class="container viewer-main">
     <section class="viewer-heading">
-      <span class="eyebrow">Laudo incorporado</span>
-      <h1 id="viewer-title">Carregando laudo…</h1>
+      <span class="eyebrow">Documento em PDF</span>
+      <h1 id="viewer-title">Carregando PDF…</h1>
       <p id="viewer-meta" class="viewer-meta"></p>
-      <div class="viewer-actions">
-        <button class="primary-action" id="download-text" type="button" disabled>Baixar transcrição .txt</button>
+      <div class="pdf-actions" id="pdf-actions" hidden>
+        <a class="primary-action" id="open-pdf" target="_blank" rel="noopener">Abrir PDF em nova aba</a>
+        <a class="secondary-button" id="download-pdf" target="_blank" rel="noopener">Baixar PDF</a>
       </div>
+      <p class="pdf-note" id="pdf-note" hidden>O PDF fica armazenado de forma privada no Google Drive. Caso o navegador solicite autenticação, entre na conta Google que possui acesso ao arquivo.</p>
     </section>
-    <section class="transcript-note">
-      <strong>Sobre esta visualização</strong>
-      <p>Este documento foi incorporado como transcrição textual integral extraída do PDF enviado. Para conferência de assinatura, carimbos e diagramação, preserve o arquivo PDF original.</p>
+    <section class="pdf-shell" id="pdf-shell" hidden>
+      <iframe class="pdf-frame" id="pdf-frame" title="Visualização do PDF" referrerpolicy="no-referrer"></iframe>
     </section>
-    <section class="transcript-panel" aria-live="polite">
-      <pre id="transcript">Carregando conteúdo…</pre>
+    <section class="transcript-note" id="error-box" hidden>
+      <strong>Não foi possível localizar este PDF</strong>
+      <p>Volte à lista de exames e selecione um documento válido.</p>
     </section>
   </main>
   <script>
     const docs={
-      'lab-2026-08-29':{title:'Exames laboratoriais completos',date:'Coleta: 29/08/2026 · 34 páginas',path:'/data/laudo-2026-08-29.txt.gz.b64',filename:'laudo-2026-08-29.txt'},
-      'ergometrico-2026-08-21':{title:'Teste ergométrico',date:'Realização: 21/08/2026',path:'/data/laudo-2026-08-21-ergometrico.txt.gz.b64',filename:'teste-ergometrico-2026-08-21.txt'},
-      'lab-2026-08-20':{title:'Exames laboratoriais completos',date:'Coleta: 20/08/2026 · 28 páginas',path:'/data/laudo-2026-08-20.txt.gz.b64',filename:'laudo-2026-08-20.txt'},
-      'lab-2026-07-14':{title:'Exames laboratoriais consolidados',date:'Coleta: 14/07/2026 · 20 páginas',path:'/data/laudo-2026-07-14.txt.gz.b64',filename:'laudo-2026-07-14.txt'}
+      'lab-2026-08-29':{title:'Exames laboratoriais completos',date:'Coleta: 29/08/2026 · 34 páginas',id:'1032x_HDWQOsLnc7gbpaz_dTld4d76izj'},
+      'ergometrico-2026-08-21':{title:'Teste ergométrico',date:'Realização: 21/08/2026 · 1 página',id:'13Gv0I9yapLkD1NKovE84auvbi7krhCQZ'},
+      'lab-2026-08-20':{title:'Exames laboratoriais completos',date:'Coleta: 20/08/2026 · 28 páginas',id:'1TxozeewsQr22NxpE0nfgKLQMavE7279X'},
+      'lab-2026-07-14':{title:'Exames laboratoriais consolidados',date:'Coleta: 14/07/2026 · 20 páginas',id:'1GNpm0unLeCo_RNuQjO4hNriVyZSIXz6P'}
     };
-    const title=document.querySelector('#viewer-title');
-    const meta=document.querySelector('#viewer-meta');
-    const pre=document.querySelector('#transcript');
-    const download=document.querySelector('#download-text');
+
     const key=new URLSearchParams(location.search).get('doc');
     const doc=docs[key];
-    let transcript='';
+    const title=document.querySelector('#viewer-title');
+    const meta=document.querySelector('#viewer-meta');
+    const shell=document.querySelector('#pdf-shell');
+    const frame=document.querySelector('#pdf-frame');
+    const actions=document.querySelector('#pdf-actions');
+    const openPdf=document.querySelector('#open-pdf');
+    const downloadPdf=document.querySelector('#download-pdf');
+    const note=document.querySelector('#pdf-note');
+    const errorBox=document.querySelector('#error-box');
 
-    async function decodeGzipBase64(value){
-      if(typeof DecompressionStream==='undefined') throw new Error('Navegador sem suporte à descompressão gzip.');
-      const compact=value.replace(/\s+/g,'');
-      const binary=atob(compact);
-      const bytes=new Uint8Array(binary.length);
-      for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
-      const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
-      return await new Response(stream).text();
+    if(doc){
+      const view=`https://drive.google.com/file/d/${doc.id}/view?usp=drivesdk`;
+      const preview=`https://drive.google.com/file/d/${doc.id}/preview`;
+      const download=`https://drive.google.com/uc?export=download&id=${doc.id}`;
+      title.textContent=doc.title;
+      meta.textContent=doc.date;
+      document.title=`${doc.title} | Exames Davi`;
+      openPdf.href=view;
+      downloadPdf.href=download;
+      frame.src=preview;
+      actions.hidden=false;
+      note.hidden=false;
+      shell.hidden=false;
+    }else{
+      title.textContent='Documento não encontrado';
+      meta.textContent='';
+      errorBox.hidden=false;
     }
 
-    async function init(){
-      if(!doc){title.textContent='Documento não encontrado';meta.textContent='Volte à lista de exames e selecione um documento válido.';pre.textContent='';return;}
-      title.textContent=doc.title;meta.textContent=doc.date;document.title=`${doc.title} | Exames Davi`;
-      try{
-        const response=await fetch(doc.path,{cache:'no-store'});
-        if(!response.ok)throw new Error('Falha ao carregar o documento.');
-        transcript=await decodeGzipBase64(await response.text());
-        pre.textContent=transcript;
-        download.disabled=false;
-      }catch(error){pre.textContent='Não foi possível abrir esta transcrição neste dispositivo. Tente novamente ou volte à lista de exames.';}
-    }
-
-    download.addEventListener('click',()=>{
-      if(!transcript||!doc)return;
-      const url=URL.createObjectURL(new Blob([transcript],{type:'text/plain;charset=utf-8'}));
-      const link=document.createElement('a');link.href=url;link.download=doc.filename;document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-    });
     document.querySelector('#logout').addEventListener('click',async()=>{try{await fetch('/api/logout',{method:'POST'});}finally{location.replace('/login');}});
-    init();
   </script>
 </body>
 </html>
