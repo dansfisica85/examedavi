@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="theme-color" content="#07111f">
+  <title>Visualizador de laudo | Exames Davi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="grid"></div></div>
+  <header class="compact-header">
+    <div class="container compact-header-inner">
+      <a class="back-link" href="/">← Voltar aos exames</a>
+      <button class="secondary-button" id="logout" type="button">Sair</button>
+    </div>
+  </header>
+  <main class="container viewer-main">
+    <section class="viewer-heading">
+      <span class="eyebrow">Laudo incorporado</span>
+      <h1 id="viewer-title">Carregando laudo…</h1>
+      <p id="viewer-meta" class="viewer-meta"></p>
+      <div class="viewer-actions">
+        <button class="primary-action" id="download-text" type="button" disabled>Baixar transcrição .txt</button>
+      </div>
+    </section>
+    <section class="transcript-note">
+      <strong>Sobre esta visualização</strong>
+      <p>Este documento foi incorporado como transcrição textual integral extraída do PDF enviado. Para conferência de assinatura, carimbos e diagramação, preserve o arquivo PDF original.</p>
+    </section>
+    <section class="transcript-panel" aria-live="polite">
+      <pre id="transcript">Carregando conteúdo…</pre>
+    </section>
+  </main>
+  <script>
+    const docs={
+      'lab-2026-08-29':{title:'Exames laboratoriais completos',date:'Coleta: 29/08/2026 · 34 páginas',path:'/data/laudo-2026-08-29.txt.gz.b64',filename:'laudo-2026-08-29.txt'},
+      'ergometrico-2026-08-21':{title:'Teste ergométrico',date:'Realização: 21/08/2026',path:'/data/laudo-2026-08-21-ergometrico.txt.gz.b64',filename:'teste-ergometrico-2026-08-21.txt'},
+      'lab-2026-08-20':{title:'Exames laboratoriais completos',date:'Coleta: 20/08/2026 · 28 páginas',path:'/data/laudo-2026-08-20.txt.gz.b64',filename:'laudo-2026-08-20.txt'},
+      'lab-2026-07-14':{title:'Exames laboratoriais consolidados',date:'Coleta: 14/07/2026 · 20 páginas',path:'/data/laudo-2026-07-14.txt.gz.b64',filename:'laudo-2026-07-14.txt'}
+    };
+    const title=document.querySelector('#viewer-title');
+    const meta=document.querySelector('#viewer-meta');
+    const pre=document.querySelector('#transcript');
+    const download=document.querySelector('#download-text');
+    const key=new URLSearchParams(location.search).get('doc');
+    const doc=docs[key];
+    let transcript='';
+
+    async function decodeGzipBase64(value){
+      if(typeof DecompressionStream==='undefined') throw new Error('Navegador sem suporte à descompressão gzip.');
+      const compact=value.replace(/\s+/g,'');
+      const binary=atob(compact);
+      const bytes=new Uint8Array(binary.length);
+      for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
+      const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+      return await new Response(stream).text();
+    }
+
+    async function init(){
+      if(!doc){title.textContent='Documento não encontrado';meta.textContent='Volte à lista de exames e selecione um documento válido.';pre.textContent='';return;}
+      title.textContent=doc.title;meta.textContent=doc.date;document.title=`${doc.title} | Exames Davi`;
+      try{
+        const response=await fetch(doc.path,{cache:'no-store'});
+        if(!response.ok)throw new Error('Falha ao carregar o documento.');
+        transcript=await decodeGzipBase64(await response.text());
+        pre.textContent=transcript;
+        download.disabled=false;
+      }catch(error){pre.textContent='Não foi possível abrir esta transcrição neste dispositivo. Tente novamente ou volte à lista de exames.';}
+    }
+
+    download.addEventListener('click',()=>{
+      if(!transcript||!doc)return;
+      const url=URL.createObjectURL(new Blob([transcript],{type:'text/plain;charset=utf-8'}));
+      const link=document.createElement('a');link.href=url;link.download=doc.filename;document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    });
+    document.querySelector('#logout').addEventListener('click',async()=>{try{await fetch('/api/logout',{method:'POST'});}finally{location.replace('/login');}});
+    init();
+  </script>
+</body>
+</html>
