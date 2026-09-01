@@ -41,7 +41,7 @@ h1 { margin-bottom: 18px; font-size: clamp(2.35rem, 6vw, 4.7rem); line-height: 1
 .secondary-button { min-height: 42px; padding: 0 15px; border: 1px solid var(--line); border-radius: 12px; color: var(--text); background: rgba(255,255,255,.045); font-weight: 700; transition: .2s ease; }
 .secondary-button:hover { border-color: rgba(94,234,212,.45); background: rgba(94,234,212,.08); }
 main { padding-block: 34px 72px; }
-.privacy-note { display: flex; gap: 15px; align-items: flex-start; margin-bottom: 48px; padding: 18px 20px; border: 1px solid rgba(251,191,36,.25); border-radius: 18px; background: rgba(251,191,36,.075); }
+.privacy-note { display: none !important; }
 .privacy-icon { flex: none; width: 29px; height: 29px; display: grid; place-items: center; border-radius: 50%; background: var(--warning); color: #3b2700; font-weight: 900; }
 .privacy-note strong { display: block; margin-bottom: 2px; }
 .privacy-note p { margin: 0; color: #d7c9a5; font-size: .91rem; }
